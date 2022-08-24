@@ -45,7 +45,7 @@ public class 课程表II {
                 dfs(v);   // dfs每次出来后isValid要判断是否变化
                 if (!isValid) return;   // 为false，有环
             } else if (visited[v] == 1) {
-                isValid = false;
+                isValid = false;   // isvalid只有一个地方会改变，如果所有循环走完不被改变就是true
                 return;
             }
         }
