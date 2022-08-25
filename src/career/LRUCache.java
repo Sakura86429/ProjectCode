@@ -45,7 +45,7 @@ public class LRUCache {
         }
     }
     public void put(int key, int value) {
-        DLinkedNode node = cache.get(key);
+        DLinkedNode node = cache.get(key);   // 是对象的引用吗，还是传了对象【此处和修改node.prev一个意思，只不过修改的是value】
         if (node == null) {
             DLinkedNode newNode = new DLinkedNode(key, value);
             cache.put(key, newNode);
@@ -57,7 +57,7 @@ public class LRUCache {
                 size--;
             }
         } else {
-            node.value = value;   // 不更新cache中的value？？答：修改了，cache里面存的双向链表对象，node.value相当于修改了里面的链表值
+            node.value = value;   // 不更新cache中的value？？答：修改了，cache里面存的双向链表对象，node.value相当于修改了里面的链表值？？
             moveToHead(node);
         }
     }
